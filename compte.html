@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--INFORMATION-->
+  <title>Mon Compte | ITech Market</title>
+<link rel="icon" href="image/favicon.ico" type="image/x-ico">
+  <link rel="stylesheet" href="design/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+  <div class="logo">📱 ITech Market</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="produits.html">Produits</a></li>
+    <li><a href="partenariat.html">Partenariat</a></li>
+  </ul>
+  <!-- Menu déroulant dans l’angle droit -->
+  <div class="dropdown">
+    <a href="#" class="dropdown-toggle">☰</a>
+    <ul class="dropdown-menu">
+      <li><a href="revendeur.html">Revendeur</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="compte.html">Mon Compte</a></li>
+    </ul>
+  </div>
+</nav>
+  </header>
+  <main class="account-page">
+    <section class="login-section">
+      <h1>🔐 Accédez à votre compte</h1>
+
+      <!-- Connexion manuelle -->
+      <form action="dashboard.html" method="POST" class="login-form">
+        <label for="email">Adresse Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">connectez-vous</button>
+        <p class="link">Pas encore de compte ? <a href="#">créer un compte</a></p>
+      </form>
+
+      <!-- Connexion Google -->
+      <div class="google-login">
+        <h2>Ou connectez-vous avec Google</h2>
+        <div id="g_id_onload"
+             data-client_id="120463564639-pddglemqi3aj1selp9povnlj4deocplh.apps.googleusercontent.com"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleCredentialResponse"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="filled_blue"
+             data-text="continue_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 ITech Market - Tous droits réservés</p>
+  </footer>
+
+  <!-- Boutons flottants -->
+  <div class="social-float">
+    <a href="https://wa.me/22999505668" target="_blank" class="social-icon whatsapp">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61578311833873" target="_blank" class="social-icon facebook">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+    </a>
+  </div>
+
+  <!-- Google Identity Library -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/jwt-decode.min.js"></script>
+  <script>
+    function handleCredentialResponse(response) {
+      const data = jwt_decode(response.credential);
+      console.log("Connecté avec Google :", data);
+      alert("Bienvenue " + data.name + " !");
+      // Rediriger vers un dashboard
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>
