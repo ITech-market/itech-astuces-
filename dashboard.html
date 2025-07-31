@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--INFIRMTION-->
+  <title>Mon Tableau de bord | ITech Market</title>
+  <link rel="icon" href="image/favicon.ico" type="image/x-ico">
+  <link rel="stylesheet" href="design/style.css" />
+  <style>
+    .dashboard {
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .dashboard h2 {
+      color: #1d3557;
+      text-align: center;
+    }
+
+    .user-info, .orders {
+      margin-top: 30px;
+    }
+
+    .user-info p, .orders li {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
+    .logout-btn {
+      margin-top: 40px;
+      display: block;
+      text-align: center;
+    }
+
+    .logout-btn button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .logout-btn button:hover {
+      background-color: #d62828;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <nav>
+    <div class="logo">📱 ITech Market</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="produits.html">Produits</a></li>
+      <li><a href="partenariat.html">Partenariat</a></li>
+    </ul>
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle">☰</a>
+      <ul class="dropdown-menu">
+        <li><a href="revendeur.html">Revendeur</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="compte.html">Mon Compte</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenu du tableau de bord -->
+  <div class="dashboard">
+    <h2>Bienvenue sur votre tableau de bord !</h2>
+
+    <div class="user-info">
+      <h3>👤 Informations personnelles :</h3>
+      <p><strong>Nom :</strong> <span id="userName">Utilisateur</span></p>
+      <p><strong>Email :</strong> <span id="userEmail">exemple@email.com</span></p>
+    </div>
+
+    <div class="orders">
+      <h3>📦 Commandes récentes :</h3>
+      <ul>
+        <li>Commande #12345 – iPhone 12 – 28 juillet 2025</li>
+        <li>Commande #12312 – Samsung S21 – 15 juillet 2025</li>
+        <li>Commande #12230 – AirPods Pro – 1 juillet 2025</li>
+      </ul>
+    </div>
+
+    <div class="logout-btn">
+      <button onclick="logout()">Se déconnecter</button>
+    </div>
+  </div>
+
+  <script>
+    // Simuler les données (à remplacer avec Firebase/MySQL plus tard)
+    const name = localStorage.getItem('userName') || 'Utilisateur';
+    const email = localStorage.getItem('userEmail') || 'exemple@email.com';
+
+    document.getElementById('userName').textContent = name;
+    document.getElementById('userEmail').textContent = email;
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = 'compte.html';
+    }
+  </script>
+
+</body>
+</html>
